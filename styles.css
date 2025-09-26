@@ -7,34 +7,35 @@
 
 body {
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-    background-color: #f3f2f1;
+    background-color: #faf9f8;
     color: #323130;
     line-height: 1.4;
 }
 
 .admin-center-container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
 .control-card {
     background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 0px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.12);
     overflow: hidden;
+    border: 1px solid #e1dfdd;
 }
 
 .control-header {
-    padding: 32px 32px 24px 32px;
-    border-bottom: 1px solid #edebe9;
+    padding: 40px 40px 32px 40px;
+    border-bottom: 1px solid #e1dfdd;
 }
 
 .control-title {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     color: #323130;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .control-description {
@@ -44,11 +45,11 @@ body {
 }
 
 .control-content {
-    padding: 24px 32px;
+    padding: 40px 40px;
 }
 
 .settings-group {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
 }
 
 .settings-group:last-child {
@@ -56,43 +57,47 @@ body {
 }
 
 .group-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: #323130;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .group-description {
     font-size: 14px;
     color: #605e5c;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
 .radio-group {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .radio-option {
     display: flex;
     align-items: flex-start;
-    padding: 16px;
-    border: 1px solid #d2d0ce;
-    border-radius: 4px;
+    padding: 12px 16px;
+    border: 1px solid #e1dfdd;
+    border-radius: 2px;
     cursor: pointer;
     transition: all 0.2s ease;
     background-color: #ffffff;
+    min-height: 44px;
 }
 
 .radio-option:hover {
     border-color: #0078d4;
-    background-color: #f8f9fa;
+    background-color: #f3f9fd;
 }
 
 .radio-option:has(input:checked) {
     border-color: #0078d4;
-    background-color: #f3f9fd;
+    background-color: #eff6fc;
+    border-width: 2px;
+    padding: 11px 15px;
 }
 
 .radio-option input[type="radio"] {
@@ -100,12 +105,12 @@ body {
 }
 
 .radio-custom {
-    width: 16px;
-    height: 16px;
-    border: 2px solid #605e5c;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #8a8886;
     border-radius: 50%;
     margin-right: 12px;
-    margin-top: 2px;
+    margin-top: 0px;
     position: relative;
     flex-shrink: 0;
     transition: all 0.2s ease;
@@ -118,10 +123,10 @@ body {
 .radio-option:has(input:checked) .radio-custom::after {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 8px;
-    height: 8px;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: #0078d4;
 }
@@ -135,6 +140,7 @@ body {
     font-weight: 600;
     color: #323130;
     margin-bottom: 4px;
+    line-height: 1.3;
 }
 
 .option-description {
@@ -144,9 +150,9 @@ body {
 }
 
 .control-footer {
-    padding: 24px 32px;
+    padding: 32px 40px;
     background-color: #faf9f8;
-    border-top: 1px solid #edebe9;
+    border-top: 1px solid #e1dfdd;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -154,18 +160,22 @@ body {
 
 .button-group {
     display: flex;
-    gap: 12px;
+    gap: 8px;
 }
 
 .btn {
-    padding: 8px 20px;
+    padding: 10px 20px;
     border-radius: 2px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 1px solid transparent;
-    min-width: 80px;
+    min-width: 88px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-primary {
