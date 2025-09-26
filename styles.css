@@ -43,6 +43,10 @@ body {
     line-height: 1.5;
 }
 
+.control-description + .control-description {
+    margin-top: 16px;
+}
+
 .control-content {
     padding: 24px 32px;
 }
