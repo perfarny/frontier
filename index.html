@@ -24,80 +24,91 @@
             </div>
             
             <div class="control-content">
-                <div class="settings-group">
-                    <h3 class="group-title">Web Apps</h3>
-                    <p class="group-description">Configure Frontier features for web-based applications. When enabled, Frontier features will be available directly in web applications for the selected users.</p>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="webApps" value="noAccess" checked>
-                            <span class="radio-custom"></span>
-                            <div class="option-content">
-                                <div class="option-title">No access</div>
-                                <div class="option-description">Frontier features are disabled</div>
-                            </div>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="webApps" value="allUsers">
-                            <span class="radio-custom"></span>
-                            <div class="option-content">
-                                <div class="option-title">All users</div>
-                                <div class="option-description">Enable Frontier features for all users</div>
-                            </div>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="webApps" value="specificGroups">
-                            <span class="radio-custom"></span>
-                            <div class="option-content">
-                                <div class="option-title">Specific user groups</div>
-                                <div class="option-description">Enable Frontier features for selected user groups only</div>
-                            </div>
-                        </label>
-                        <div class="entra-groups-input" id="webAppsGroups" style="display: none;">
-                            <label for="webAppsGroupsTextarea" class="input-label">Entra user groups:</label>
-                            <textarea 
-                                id="webAppsGroupsTextarea" 
-                                class="groups-textarea" 
-                                placeholder="Enter Entra group names, one per line or comma-separated"
-                                rows="3"></textarea>
-                        </div>
+                <div class="tab-container">
+                    <div class="tab-navigation">
+                        <button class="tab-button active" data-tab="webApps">Web Apps</button>
+                        <button class="tab-button" data-tab="officeWin32">Office win32</button>
                     </div>
-                </div>
+                    
+                    <div class="tab-content">
+                        <div class="tab-panel active" id="webApps-panel">
+                            <div class="settings-group">
+                                <p class="group-description">Configure Frontier features for web-based applications. When enabled, Frontier features will be available directly in web applications for the selected users.</p>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="webApps" value="noAccess" checked>
+                                        <span class="radio-custom"></span>
+                                        <div class="option-content">
+                                            <div class="option-title">No access</div>
+                                            <div class="option-description">Frontier features are disabled</div>
+                                        </div>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="webApps" value="allUsers">
+                                        <span class="radio-custom"></span>
+                                        <div class="option-content">
+                                            <div class="option-title">All users</div>
+                                            <div class="option-description">Enable Frontier features for all users</div>
+                                        </div>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="webApps" value="specificGroups">
+                                        <span class="radio-custom"></span>
+                                        <div class="option-content">
+                                            <div class="option-title">Specific user groups</div>
+                                            <div class="option-description">Enable Frontier features for selected user groups only</div>
+                                        </div>
+                                    </label>
+                                    <div class="entra-groups-input" id="webAppsGroups" style="display: none;">
+                                        <label for="webAppsGroupsTextarea" class="input-label">Entra user groups:</label>
+                                        <textarea 
+                                            id="webAppsGroupsTextarea" 
+                                            class="groups-textarea" 
+                                            placeholder="Enter Entra group names, one per line or comma-separated"
+                                            rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="settings-group">
-                    <h3 class="group-title">Office win32</h3>
-                    <p class="group-description">Configure Frontier features for Office desktop applications. When enabled for all users, they will have a toggle in their Office desktop app (off by default) to enable Frontier features.</p>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="officeWin32" value="noAccess">
-                            <span class="radio-custom"></span>
-                            <div class="option-content">
-                                <div class="option-title">No access</div>
-                                <div class="option-description">Frontier features are disabled</div>
+                        <div class="tab-panel" id="officeWin32-panel">
+                            <div class="settings-group">
+                                <p class="group-description">Configure Frontier features for Office desktop applications. When enabled for all users, they will have a toggle in their Office desktop app (off by default) to enable Frontier features.</p>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="officeWin32" value="noAccess">
+                                        <span class="radio-custom"></span>
+                                        <div class="option-content">
+                                            <div class="option-title">No access</div>
+                                            <div class="option-description">Frontier features are disabled</div>
+                                        </div>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="officeWin32" value="allUsers" checked>
+                                        <span class="radio-custom"></span>
+                                        <div class="option-content">
+                                            <div class="option-title">All users</div>
+                                            <div class="option-description">Enable Frontier features for all users</div>
+                                        </div>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="officeWin32" value="specificGroups">
+                                        <span class="radio-custom"></span>
+                                        <div class="option-content">
+                                            <div class="option-title">Specific user groups</div>
+                                            <div class="option-description">Enable Frontier features for selected user groups only</div>
+                                        </div>
+                                    </label>
+                                    <div class="entra-groups-input" id="officeWin32Groups" style="display: none;">
+                                        <label for="officeWin32GroupsTextarea" class="input-label">Entra user groups:</label>
+                                        <textarea 
+                                            id="officeWin32GroupsTextarea" 
+                                            class="groups-textarea" 
+                                            placeholder="Enter Entra group names, one per line or comma-separated"
+                                            rows="3"></textarea>
+                                    </div>
+                                </div>
                             </div>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="officeWin32" value="allUsers" checked>
-                            <span class="radio-custom"></span>
-                            <div class="option-content">
-                                <div class="option-title">All users</div>
-                                <div class="option-description">Enable Frontier features for all users</div>
-                            </div>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="officeWin32" value="specificGroups">
-                            <span class="radio-custom"></span>
-                            <div class="option-content">
-                                <div class="option-title">Specific user groups</div>
-                                <div class="option-description">Enable Frontier features for selected user groups only</div>
-                            </div>
-                        </label>
-                        <div class="entra-groups-input" id="officeWin32Groups" style="display: none;">
-                            <label for="officeWin32GroupsTextarea" class="input-label">Entra user groups:</label>
-                            <textarea 
-                                id="officeWin32GroupsTextarea" 
-                                class="groups-textarea" 
-                                placeholder="Enter Entra group names, one per line or comma-separated"
-                                rows="3"></textarea>
                         </div>
                     </div>
                 </div>

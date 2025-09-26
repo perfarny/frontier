@@ -20,6 +20,14 @@ class FrontierAdminControl {
             this.cancelChanges();
         });
 
+        // Tab button clicks
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                this.switchTab(button.dataset.tab);
+            });
+        });
+
         // Radio button changes
         const radioButtons = document.querySelectorAll('input[type="radio"]');
         radioButtons.forEach(radio => {
@@ -36,6 +44,35 @@ class FrontierAdminControl {
                 this.onSettingChange();
             });
         });
+    }
+
+    switchTab(tabId) {
+        // Remove active class from all tab buttons
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        // Add active class to clicked tab button
+        const activeButton = document.querySelector(`[data-tab="${tabId}"]`);
+        if (activeButton) {
+            activeButton.classList.add('active');
+        }
+
+        // Hide all tab panels
+        const tabPanels = document.querySelectorAll('.tab-panel');
+        tabPanels.forEach(panel => {
+            panel.classList.remove('active');
+        });
+
+        // Show the selected tab panel
+        const activePanel = document.getElementById(`${tabId}-panel`);
+        if (activePanel) {
+            activePanel.classList.add('active');
+        }
+
+        // Update groups input visibility for the active tab
+        this.toggleGroupsInput();
     }
 
     toggleGroupsInput() {
