@@ -1,0 +1,251 @@
+/* Microsoft Admin Center Fluent Design System styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background-color: #f3f2f1;
+    color: #323130;
+    line-height: 1.4;
+}
+
+.admin-center-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.control-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 0px 2px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.control-header {
+    padding: 32px 32px 24px 32px;
+    border-bottom: 1px solid #edebe9;
+}
+
+.control-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #323130;
+    margin-bottom: 8px;
+}
+
+.control-description {
+    font-size: 14px;
+    color: #605e5c;
+    line-height: 1.5;
+}
+
+.control-content {
+    padding: 24px 32px;
+}
+
+.settings-group {
+    margin-bottom: 32px;
+}
+
+.settings-group:last-child {
+    margin-bottom: 0;
+}
+
+.group-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #323130;
+    margin-bottom: 4px;
+}
+
+.group-description {
+    font-size: 14px;
+    color: #605e5c;
+    margin-bottom: 16px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    border: 1px solid #d2d0ce;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+}
+
+.radio-option:hover {
+    border-color: #0078d4;
+    background-color: #f8f9fa;
+}
+
+.radio-option:has(input:checked) {
+    border-color: #0078d4;
+    background-color: #f3f9fd;
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #605e5c;
+    border-radius: 50%;
+    margin-right: 12px;
+    margin-top: 2px;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.radio-option:has(input:checked) .radio-custom {
+    border-color: #0078d4;
+}
+
+.radio-option:has(input:checked) .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #0078d4;
+}
+
+.option-content {
+    flex: 1;
+}
+
+.option-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #323130;
+    margin-bottom: 4px;
+}
+
+.option-description {
+    font-size: 12px;
+    color: #605e5c;
+    line-height: 1.4;
+}
+
+.control-footer {
+    padding: 24px 32px;
+    background-color: #faf9f8;
+    border-top: 1px solid #edebe9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    min-width: 80px;
+}
+
+.btn-primary {
+    background-color: #0078d4;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #106ebe;
+}
+
+.btn-primary:active {
+    background-color: #005a9e;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #323130;
+    border: 1px solid #8a8886;
+}
+
+.btn-secondary:hover {
+    background-color: #f3f2f1;
+}
+
+.btn-secondary:active {
+    background-color: #edebe9;
+}
+
+.status-message {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    animation: fadeIn 0.3s ease;
+}
+
+.status-message.success {
+    background-color: #dff6dd;
+    color: #107c10;
+    border: 1px solid #9fd89f;
+}
+
+.status-message.error {
+    background-color: #fde7e9;
+    color: #d13438;
+    border: 1px solid #f1acb1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .admin-center-container {
+        margin: 10px auto;
+        padding: 0 10px;
+    }
+    
+    .control-header,
+    .control-content,
+    .control-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .control-footer {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+    
+    .button-group {
+        justify-content: center;
+    }
+}
