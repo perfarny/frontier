@@ -25,8 +25,43 @@ class FrontierAdminControl {
         radioButtons.forEach(radio => {
             radio.addEventListener('change', () => {
                 this.onSettingChange();
+                this.toggleGroupsInput();
             });
         });
+
+        // Textarea changes for groups
+        const textareas = document.querySelectorAll('.groups-textarea');
+        textareas.forEach(textarea => {
+            textarea.addEventListener('input', () => {
+                this.onSettingChange();
+            });
+        });
+    }
+
+    toggleGroupsInput() {
+        // Handle Web Apps groups input
+        const webAppsSpecificGroups = document.querySelector('input[name="webApps"][value="specificGroups"]');
+        const webAppsGroupsInput = document.getElementById('webAppsGroups');
+        
+        if (webAppsSpecificGroups && webAppsGroupsInput) {
+            if (webAppsSpecificGroups.checked) {
+                webAppsGroupsInput.style.display = 'block';
+            } else {
+                webAppsGroupsInput.style.display = 'none';
+            }
+        }
+
+        // Handle Office win32 groups input
+        const officeWin32SpecificGroups = document.querySelector('input[name="officeWin32"][value="specificGroups"]');
+        const officeWin32GroupsInput = document.getElementById('officeWin32Groups');
+        
+        if (officeWin32SpecificGroups && officeWin32GroupsInput) {
+            if (officeWin32SpecificGroups.checked) {
+                officeWin32GroupsInput.style.display = 'block';
+            } else {
+                officeWin32GroupsInput.style.display = 'none';
+            }
+        }
     }
 
     loadSettings() {
@@ -44,13 +79,29 @@ class FrontierAdminControl {
         if (officeWin32Radio) {
             officeWin32Radio.checked = true;
         }
+
+        // Set groups data
+        const webAppsTextarea = document.getElementById('webAppsGroupsTextarea');
+        if (webAppsTextarea && savedSettings.webAppsGroups) {
+            webAppsTextarea.value = savedSettings.webAppsGroups;
+        }
+
+        const officeWin32Textarea = document.getElementById('officeWin32GroupsTextarea');
+        if (officeWin32Textarea && savedSettings.officeWin32Groups) {
+            officeWin32Textarea.value = savedSettings.officeWin32Groups;
+        }
+
+        // Show/hide groups input based on selections
+        this.toggleGroupsInput();
     }
 
     getSavedSettings() {
         // Get settings from localStorage or return defaults
         const defaults = {
             webApps: 'noAccess',
-            officeWin32: 'allUsers'
+            officeWin32: 'allUsers',
+            webAppsGroups: '',
+            officeWin32Groups: ''
         };
 
         try {
@@ -65,10 +116,15 @@ class FrontierAdminControl {
     getCurrentSettings() {
         const webAppsRadio = document.querySelector('input[name="webApps"]:checked');
         const officeWin32Radio = document.querySelector('input[name="officeWin32"]:checked');
+        
+        const webAppsTextarea = document.getElementById('webAppsGroupsTextarea');
+        const officeWin32Textarea = document.getElementById('officeWin32GroupsTextarea');
 
         return {
             webApps: webAppsRadio ? webAppsRadio.value : 'noAccess',
-            officeWin32: officeWin32Radio ? officeWin32Radio.value : 'allUsers'
+            officeWin32: officeWin32Radio ? officeWin32Radio.value : 'allUsers',
+            webAppsGroups: webAppsTextarea ? webAppsTextarea.value : '',
+            officeWin32Groups: officeWin32Textarea ? officeWin32Textarea.value : ''
         };
     }
 
