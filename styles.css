@@ -49,7 +49,74 @@ body {
 }
 
 .control-content {
+    padding: 0;
+}
+
+.tab-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tab-navigation {
+    display: flex;
+    border-bottom: 1px solid #e1dfdd;
+    background-color: #faf9f8;
+}
+
+.tab-button {
+    padding: 16px 24px;
+    border: none;
+    background-color: transparent;
+    color: #605e5c;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+    position: relative;
+}
+
+.tab-button:hover {
+    background-color: #f3f2f1;
+    color: #323130;
+}
+
+.tab-button.active {
+    color: #0078d4;
+    border-bottom-color: #0078d4;
+    background-color: #ffffff;
+}
+
+.tab-button:focus {
+    outline: 2px solid #0078d4;
+    outline-offset: -2px;
+}
+
+.tab-content {
+    flex: 1;
+    background-color: #ffffff;
+}
+
+.tab-panel {
+    display: none;
     padding: 40px 40px;
+    animation: fadeIn 0.2s ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .settings-group {
@@ -301,10 +368,18 @@ body {
     }
     
     .control-header,
-    .control-content,
     .control-footer {
         padding-left: 20px;
         padding-right: 20px;
+    }
+    
+    .tab-panel {
+        padding: 20px;
+    }
+    
+    .tab-button {
+        padding: 12px 16px;
+        font-size: 13px;
     }
     
     .control-footer {
