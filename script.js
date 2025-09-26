@@ -50,7 +50,7 @@ class FrontierAdminControl {
         // Get settings from localStorage or return defaults
         const defaults = {
             webApps: 'noAccess',
-            officeWin32: 'noAccess'
+            officeWin32: 'allUsers'
         };
 
         try {
@@ -68,7 +68,7 @@ class FrontierAdminControl {
 
         return {
             webApps: webAppsRadio ? webAppsRadio.value : 'noAccess',
-            officeWin32: officeWin32Radio ? officeWin32Radio.value : 'noAccess'
+            officeWin32: officeWin32Radio ? officeWin32Radio.value : 'allUsers'
         };
     }
 
@@ -121,15 +121,15 @@ class FrontierAdminControl {
         // Simulate API call delay and response
         setTimeout(() => {
             console.log('API Response: Settings successfully applied to tenant');
-            console.log('Web Apps access level:', this.getAccessLevelDescription(settings.webApps));
-            console.log('Office win32 access level:', this.getAccessLevelDescription(settings.officeWin32));
+            console.log('Web Apps access level:', this.getAccessLevelDescription(settings.webApps, 'webApps'));
+            console.log('Office win32 access level:', this.getAccessLevelDescription(settings.officeWin32, 'officeWin32'));
         }, 500);
     }
 
-    getAccessLevelDescription(level) {
+    getAccessLevelDescription(level, platform = null) {
         const descriptions = {
             'noAccess': 'Frontier features are disabled',
-            'allUsers': 'Frontier features enabled for all users',
+            'allUsers': platform === 'officeWin32' ? 'Users have toggle control to enable Frontier features' : 'Frontier features enabled for all users',
             'specificGroups': 'Frontier features enabled for specific user groups'
         };
         return descriptions[level] || 'Unknown access level';
